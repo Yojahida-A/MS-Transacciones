@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class TransactionService {
 
-    @Autowired
+
     private static TransactionRepository transactionRepository;
 
     public TransactionService(TransactionRepository transactionRepository) {
@@ -20,10 +20,6 @@ public class TransactionService {
 
     public Mono<Transaction> createTransaction(Transaction transaction) {
         return transactionRepository.save(transaction);
-    }
-
-    public Flux<Transaction> getTransactionsBySourceAccount(String accountId) {
-        return transactionRepository.findBySourceAccount(accountId);
     }
 
     public Mono<Transaction> getTransactionById(String id) {
